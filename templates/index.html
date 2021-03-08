@@ -1,0 +1,27 @@
+<!doctype html>
+<title> SSU Attendance Check </title>
+{% extends "bootstrap/base.html" %}
+{% if data %}
+{% block content %}
+	<div class="container">
+      <h1>SSU Attendance Check</h1>
+      <table class="table table-bordered table-dark">
+        <thead>
+          <tr>
+            <th scope="col">과목명</th>
+            <th scope="col">출석체크 여부</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        {% for value in data %}
+        <tr>
+          <td>{% print(value["title"]) %} </td>
+          <td>{% print(value["result"]) %}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+	</div>
+{% endblock %}
+{% endif %}
